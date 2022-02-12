@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     Hello choose
-    <p><%= busId%></p>
-</body>
+    <p id="busIdVal"><%= busdetails.id%></p>
+    <p><%= busdetails.company%></p>
+    <p><%= busdetails.from%></p>
+    <p><%= busdetails.to%></p>
+    <p><%= busdetails.price%></p>
+    <p><%= busdetails.date%></p>
+    <form
+      onchange="ty()"
+      id="ustomerForm"
+      action="/customer/submit/<%=busdetails.id%>"
+      method="POST"
+    >
+      <input type="text" name="fName" id="fName" placeholder="First Name" />
+      <input type="text" name="lName" id="lName" placeholder="Last Name" />
+      <input type="email" name="Email" id="Email" placeholder="Email" />
+      <input type="number" name="phone" id="phone" placeholder="Phone Number" />
+      <input type="text" name="Address" id="address" placeholder="Address" />
+      <button type="submit" onClick="makePayment()">Proceed</button>
+    </form>
+    <!-- <script>
+      const busCom = document.getElementById('busIdVal').innerHTML;
+      const busFrom = document.getElementById('busIdVal').innerHTML;
+      const busTo = document.getElementById('busIdVal').innerHTML;
+      const busPrice = document.getElementById('busIdVal').innerHTML;
+      const busDate = document.getElementById('busIdVal').innerHTML;
+      console.log("testing");
+    </script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="/js/storage.js"></script>
+    <!-- <script src="https://checkout.flutterwave.com/v3.js"></script> -->
+    
+
+  </body>
 </html>
+
+
+
+

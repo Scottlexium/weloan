@@ -8,6 +8,9 @@ const cors = require('cors');
 const db = require('./config/database');
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 4659;
+const mongoose = require('mongoose');
+const moment = require('moment');
+const session = require('express-session');
 // Option 3: Passing parameters separately (other dialects)
 
 app = express();
@@ -20,14 +23,24 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors());
 
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 
-db.authenticate()
+const dbURI = process.env.MONGODB_URI
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=> {
     app.listen(port);
     console.log(`Db connected, now listening on http://localhost:${port}`);
 })
 .catch(err=> console.log(err));
+
+
 
 // app.use(expressLayouts);
 

@@ -1,7 +1,5 @@
 // for the dynamic changing
 
-const { response } = require("express");
-
 function dynamic() {
   var a = document.getElementById("form_from").value;
   if (a === "Benin") {
@@ -31,18 +29,21 @@ function dynamic() {
   for (i = 0; i < to.length; i++) {
     string = string + "<option>" + to[i] + "</option>";
   }
-  string = "<select id='form-to' name='term' >" + string + "</select>";
+  string = "<select id='form-to' name='to' >" + string + "</select>";
   document.getElementById("form-to-div").innerHTML = string;
 }
 
 const form = document.getElementById("sc-form");
 form.addEventListener("change", () => {
+  var dateVal = document.getElementById('date').value;
   var from = document.getElementById("form_from");
   var to = document.getElementById("form-to");
   var fromPlace = from.options[from.selectedIndex].value;
   var toPlace = to.options[to.selectedIndex].value;
+  var seats = document.getElementById('noOfSeat').value;
   console.log(toPlace);
-  // const vehicle = document.getElementById('vehicle__type');
+  console.log(dateVal);
+  
   var car = "None";
   if (fromPlace === "Benin" && toPlace === "Lagos") {
     var car = ["Hayas Lagos"];
@@ -67,42 +68,7 @@ form.addEventListener("change", () => {
     "<h1 class='bus__type'>" + car + "</h1>";
   console.log(fromPlace + toPlace + car);
   const submited = [fromPlace, toPlace, car];
+
+      let userParametres = {fromPlace, toPlace, dateVal, seats }
+
 });
-
-
-
-// form.addEventListener("submit", (e) => {
-//     var fromRoute = document.getElementById("form_from");
-//     var toRoute = document.getElementById("form-to");
-//     var fromPlace = fromRoute.options[fromRoute.selectedIndex].value;
-//     var toPlace = toRoute.options[toRoute.selectedIndex].value;
-//     var currentDate = document.getElementById('date').value;
-//     // const finalQuery = fromPlace + "" + "" + "to" + "" + "" + toPlace;
-//     const finalQuery = (fromPlace);
-//   e.preventDefault();
-//   const params = new URLSearchParams(finalQuery);
-//   fetch('/search', {
-//       method: 'GET',
-//       query: params
-//   })
-//   .then(res => res.text())
-//   .catch(console.log)
-
-// });
-
-// for the date functionality
-
-// function dateChoice(e) {
-//     const currentDate = document.getElementById('date').value;
-//     var today = new Date();
-//     var yyyy = today.getFullYear();
-//     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var dd = String(today.getDate()).padStart(2, '0');
-// today = yyyy + '-' + mm + '-' + dd ;
-
-// if (today === currentDate) {
-//     alert("same date")
-// }else {
-//     console.log(today)
-// };
-// }

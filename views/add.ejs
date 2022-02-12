@@ -9,11 +9,26 @@
 <body>
     <form action="/add" method="POST">
         <input id="company" name="company" type="text" placeholder="Company name">
-        <input id="date" name="date" type="date" placeholder="departure date">
-        <input id="routing" name="routing" type="text" placeholder="routing">
+        <input hidden id="date" name="date" type="date" placeholder="departure date">
+        <input id="from" name="from" type="text" placeholder="From where">
+        <input id="to" name="to" type="text" placeholder="To where">
+        <input id="quantity" name="quantity" type="number" placeholder="no of seats">
         <input id="price" name="price" type="number" placeholder="price">
         
         <button type="submit">Submit</button>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2/moment.min.js"></script>
+    <script>
+        const m = moment();
+        const curM = m.toISOString();
+        console.log(curM);
+        const currentMoment = moment().subtract(0, 'days');
+const endMoment = moment().add(20, 'days');
+while (currentMoment.isBefore(endMoment, 'day')) {
+  console.log(`Loop at ${currentMoment.format('YYYY-MM-DD')}`);
+  currentMoment.add(1, 'days');
+}
+    </script>
+    
 </body>
 </html>

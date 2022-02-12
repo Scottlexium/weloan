@@ -11,31 +11,19 @@
     <section id="MAIN_SECTION_WRAPPER">
         <h1>Bus list</h1>
         <div id="FLEXED_CONTAINER">
-    <!-- <ul id="BUS__COMPANIES__UL">
-        <% gigs.forEach(function(gig){ %>
-            <li>
-                <p><%= gig.id%></p>
-                <p id="company"><%= gig.company%></p>
-                <p id="price"><%= gig.price%></p>
-                <p id="date"><%= gig.date%></p>
-                <p id="route"><%= gig.routing%></p>
-                <p>Verified Affiliate</p>
-                <a href="/customer/<%= gig.id%>">Book Now</a>
-            </li>
-          <% }); %>
-    </ul> -->
 
     <ul id="BUS__COMPANIES__UL">
-        <% if(gigs.length > 0) {%>
-            <% gigs.forEach(gig => { %>
+        <% if(Bus.length > 0) {%>
+            <% Bus.forEach(Buses => { %>
                 <li>
-                    <p><%= gig.id%></p>
-                    <p id="company"><%= gig.company%></p>
-                    <p id="price"><%= gig.price%></p>
-                    <p id="date"><%= gig.date%></p>
-                    <p id="route"><%= gig.routing%></p>
+                    <p><%= Buses.id%></p>
+                    <p id="company"><%= Buses.company%></p>
+                    <p id="price"><%= Buses.price%></p>
+                    <p id="date"><%= Buses.date%></p>
+                    <p id="route"><%= Buses.from%></p>
+                    <p id="quantity"><%= Buses.quantity%></p>
                     <p>Verified Affiliate</p>
-                    <a href="/customer/<%= gig.id%>">Book Now</a>
+                    <a href="/customer/<%= Buses.id%>">Book Now</a>
                 </li>
             <% }) %>
         <% }else { %>
@@ -43,8 +31,11 @@
         <% } %>
     </ul>
 
-
         </div>
     </section>
 </body>
 </html>
+
+
+
+

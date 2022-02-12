@@ -1,19 +1,33 @@
-const Sequelize = require('sequelize');
-const db = require('../config/database');
+const mongoose = require('mongoose');
+// const db = require('../config/database');
 
-const Gig = db.define('gig', {
-    company:{
-        type: Sequelize.STRING
-    },
-    routing:{
-        type: Sequelize.STRING
-    },
-    price:{
-        type: Sequelize.INTEGER
-    },
-    date:{
-        type: Sequelize.STRING
-    },
-})
+const Schema = mongoose.Schema;
+const busSchema = new Schema({
+   company:{
+       type: String,
+       required: false
+   },
+   from:{
+    type: String,
+    required: false
+},
+to:{
+    type: String,
+    required: false
+},
+date:{
+    type: String,
+    required: false
+},
+quantity:{
+    type: Number,
+    required: false
+},
+price:{
+    type: String,
+    required: false
+},
+},{timestamps: true});;
 
-module.exports = Gig;
+const BusData = mongoose.model('Bus', busSchema)
+module.exports = BusData;

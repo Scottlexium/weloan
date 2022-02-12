@@ -117,3 +117,47 @@
     font-size: 20px;
     background-color: #e9e9ed;
 }
+
+
+.date-main-div{
+    min-width: 100px;
+    max-width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    border: none;
+    height: 40px;
+    font-size: 20px;
+}
+/*  */
+#noOfSeat{
+    min-width: 50px;
+    max-width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    border: none;
+    height: 40px;
+    font-size: 20px;
+    background-color: #e9e9ed;
+}
+/* #date__depart__div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-size: 20px;
+    background-color: #e9e9ed;
+} */
+
+
+.date-main-div{
+    min-width: 100px;
+    max-width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+    border: none;
+    height: 40px;
+    font-size: 20px;
+}
